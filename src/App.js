@@ -1,4 +1,5 @@
 import GeneralInfo from './components/GeneralInfo';
+import DisplayInformation from './components/DisplayInformation';
 import './App.css';
 import React, { Component } from 'react';
 
@@ -34,16 +35,29 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <form>
-          <GeneralInfo
-            handleInputChange={this.handleInputChange}
-            name={this.state.name}
-            email={this.state.email}
-            phone={this.state.phone}
-            ></GeneralInfo>
-          <button type="submit" onClick={this.handleClick}>Submit</button>
-        </form>
+      <div>
+        <div className='header'>
+           <h1 className='site-name'>CV-application</h1> 
+        </div>
+        <div className="app">
+          <div className='form-container'>
+          <form>
+            <GeneralInfo
+              handleInputChange={this.handleInputChange}
+              name={this.state.name}
+              email={this.state.email}
+              phone={this.state.phone}
+              ></GeneralInfo>
+            <button type="submit" onClick={this.handleClick}>Submit</button>
+          </form>
+        </div>
+        <DisplayInformation
+          name={this.state.name}
+          email={this.state.email}
+          phone={this.state.phone}
+        >  
+        </DisplayInformation>
+      </div>
       </div>
     );
   }

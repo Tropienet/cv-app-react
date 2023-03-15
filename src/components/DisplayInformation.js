@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
 class DisplayInformation extends Component {
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         return(
@@ -11,6 +8,9 @@ class DisplayInformation extends Component {
                 <p>Name {this.props.name}</p>
                 <p>Email {this.props.email}</p>
                 <p>Phone Number: {this.props.phone}</p>
+                <p>School: {this.props.school}</p>
+                <p>Title: {this.props.title}</p>
+                <p>Date {this.props.date}</p>
             </div>
         )
     }

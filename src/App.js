@@ -2,6 +2,7 @@ import GeneralInfo from './components/GeneralInfo';
 import DisplayInformation from './components/DisplayInformation';
 import './App.css';
 import React, { Component } from 'react';
+import EducationInfo from './components/EducationInfo';
 
 class App extends Component {
   constructor() {
@@ -11,6 +12,9 @@ class App extends Component {
         name: "",
         email: "",
         phone: "",
+        school: "",
+        title: "",
+        date: "",
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -48,6 +52,13 @@ class App extends Component {
               email={this.state.email}
               phone={this.state.phone}
               ></GeneralInfo>
+              <EducationInfo
+                handleInputChange={this.handleInputChange}
+                school={this.state.school}
+                title={this.state.title}
+                date={this.state.date}
+                >  
+              </EducationInfo>
             <button type="submit" onClick={this.handleClick}>Submit</button>
           </form>
         </div>

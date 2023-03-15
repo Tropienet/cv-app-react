@@ -4,30 +4,44 @@ class GeneralInfo extends Component {
     constructor(props) {
         super(props);
 
+       
     }
 
-    onClick = (e) => {
-        e.preventDefault();
-        console.log(this.props.name)
-    }
+    
 
     render() {
 
         return ( 
             <div>
-                <label htmlFor="name">Enter your name:</label>
-                <input 
-                    type="text"
+               <label htmlFor="name">Please enter your name</label>
+               <br></br>
+               <input
                     id="name"
+                    type="text"
+                    name="name"
                     value={this.props.name}
-                    onChange={this.props.handleNameChange}></input>
-                <label htmlFor="email">Enter your email:</label>
-                <input type="email" id="email"></input>
-                <label htmlFor="phone">Enter your phone:</label>
-                <input type="number" id="phone"></input>
-                <button
-                onClick={this.onClick}    >
-                    Info</button>
+                    onChange={this.props.handleInputChange}>
+               </input>
+               <br></br>
+               <label htmlFor="email">Please enter your email</label>
+               <br></br>
+               <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    value={this.props.email}
+                    onChange={this.props.handleInputChange}>
+                </input>
+                <br></br>
+                <label htmlFor="phone">Please enter your phone</label>
+                <br></br>
+                <input
+                    id="phone"
+                    type="tel"
+                    name="phone"
+                    value={this.props.phone}
+                    onChange={this.props.handleInputChange}>
+                    </input>
             </div>
         )
     }

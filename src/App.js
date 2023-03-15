@@ -7,41 +7,29 @@ class App extends Component {
     super();
 
     this.state = {
-      genInfo: {
         name: "",
         email: "",
         phone: "",
-      },
     }
+
+    this.handleInputChange = this.handleInputChange.bind(this)
   }
 
-  handleNameChange = (e) => {
-    this.setState({
-      genInfo: {
-        name: e.target.value
-      }
-    })
-  }
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
 
-  handleEmailChange = (e) => {
     this.setState({
-      genInfo: {
-        email: e.target.value
-      }
-    })
-  }
-
-  handlePhoneChange = (e) => {
-    this.setState({
-      genInfo: {
-        phone: e.target.value
-      }
+        [name]: value
     })
   }
 
   handleClick = (e) => {
     e.preventDefault();
-    console.log("this is:", this);
+    console.log(this.state.name);
+    console.log(this.state.email);
+    console.log(this.state.phone)
   };
 
   render() {
@@ -49,8 +37,11 @@ class App extends Component {
       <div className="App">
         <form>
           <GeneralInfo
-            handleNameChange={this.handleNameChange} 
-            name={this.state.genInfo.name}></GeneralInfo>
+            handleInputChange={this.handleInputChange}
+            name={this.state.name}
+            email={this.state.email}
+            phone={this.state.phone}
+            ></GeneralInfo>
           <button type="submit" onClick={this.handleClick}>Submit</button>
         </form>
       </div>

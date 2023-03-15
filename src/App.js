@@ -3,6 +3,7 @@ import DisplayInformation from './components/DisplayInformation';
 import './App.css';
 import React, { Component } from 'react';
 import EducationInfo from './components/EducationInfo';
+import PracticalExperience from './components/PracticalExperience';
 
 class App extends Component {
   constructor() {
@@ -15,6 +16,11 @@ class App extends Component {
         school: "",
         title: "",
         date: "",
+        company: "",
+        positionTitle: "",
+        tasks: "",
+        workStartDate: "",
+        workEndDate: "",
     }
 
     this.handleInputChange = this.handleInputChange.bind(this)
@@ -29,13 +35,6 @@ class App extends Component {
         [name]: value
     })
   }
-
-  handleClick = (e) => {
-    e.preventDefault();
-    console.log(this.state.name);
-    console.log(this.state.email);
-    console.log(this.state.phone)
-  };
 
   render() {
     return (
@@ -59,7 +58,14 @@ class App extends Component {
                 date={this.state.date}
                 >  
               </EducationInfo>
-            <button type="submit" onClick={this.handleClick}>Submit</button>
+              <PracticalExperience
+                handleInputChange={this.handleInputChange}
+                company={this.state.company}
+                positionTitle={this.state.positionTitle}
+                tasks={this.state.tasks}
+                workStartDate={this.state.workStartDate}
+                workEndDate={this.state.workEndDate}>
+              </PracticalExperience>
           </form>
         </div>
         <DisplayInformation
